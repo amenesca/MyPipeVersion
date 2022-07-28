@@ -6,7 +6,7 @@
 /*   By: amenesca <amenesca@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:15:06 by amenesca          #+#    #+#             */
-/*   Updated: 2022/07/25 13:26:04 by amenesca         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:34:51 by amenesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	child1(char *argv[], char **envp, int *fd)
 
 	file1 = open(argv[1], O_RDONLY);
 	if (file1 == -1)
-		return (if_error());
+		if_file_error(argv[1]);
 	pid1 = fork();
 	if (pid1 < 0)
-		return (if_error());
+		fork_error();
 	if (pid1 == 0)
 	{
 		dup2(fd[1], STDOUT_FILENO);
@@ -41,10 +41,10 @@ int	child2(char *argv[], char **envp, int *fd)
 
 	file2 = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (file2 == -1)
-		return (if_error());
+		if_file_error(argv[4]); 
 	pid2 = fork();
 	if (pid2 < 0)
-		return (if_error());
+		fork_error();
 	if (pid2 == 0)
 	{
 		dup2(fd[0], STDIN_FILENO);

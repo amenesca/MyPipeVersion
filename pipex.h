@@ -6,7 +6,7 @@
 /*   By: amenesca <amenesca@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:15:39 by amenesca          #+#    #+#             */
-/*   Updated: 2022/07/21 14:40:37 by amenesca         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:36:15 by amenesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ char	*path(char **str, char **cmd);
 char	**cmd(char *argv);
 int		child1(char *argv[], char **envp, int *fd);
 int		child2(char *argv[], char **envp, int *fd);
-int		if_error(void);
+void	if_file_error(char *str);
+void	pipe_error(void);
+void	path_error(char *str);
+void	fork_error(void);
+void	cmd_not_found(char *str);
 
 #endif

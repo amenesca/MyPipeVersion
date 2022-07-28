@@ -6,7 +6,7 @@
 /*   By: amenesca <amenesca@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:15:33 by amenesca          #+#    #+#             */
-/*   Updated: 2022/07/25 13:25:24 by amenesca         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:33:11 by amenesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char *argv[], char **envp)
 	if (argc == 5)
 	{
 		if (pipe(fd) == -1)
-			return (if_error());
+			pipe_error();
 		pid1 = child1(argv, envp, fd);
 		pid2 = child2(argv, envp, fd);
 		close(fd[0]);
@@ -29,5 +29,10 @@ int	main(int argc, char *argv[], char **envp)
 		waitpid(pid1, NULL, 0);
 		waitpid(pid2, NULL, 0);
 	}
+	else
+	{	
+		ft_putendl_fd("Wrong choice my friend try again tomorrow", 1);
+		exit(EXIT_FAILURE);
+	}	
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: amenesca <amenesca@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:15:21 by amenesca          #+#    #+#             */
-/*   Updated: 2022/07/21 13:15:22 by amenesca         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:31:29 by amenesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ char	*path(char **str, char **cmd)
 			return (cmd_path);
 		free(cmd_path);
 	}
+	cmd_not_found(cmd[0]);
 	return (0);
 }
