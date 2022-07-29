@@ -31,7 +31,7 @@ int	main(int argc, char *argv[], char **envp)
 	}
 	else
 	{	
-		ft_putendl_fd("Wrong choice my friend try again tomorrow", 1);
+		ft_putendl_fd("Invalid number of arguments.", 2);
 		exit(EXIT_FAILURE);
 	}	
 	return (0);
