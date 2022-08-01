@@ -6,7 +6,7 @@
 /*   By: amenesca <amenesca@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:15:06 by amenesca          #+#    #+#             */
-/*   Updated: 2022/07/28 14:34:51 by amenesca         ###   ########.fr       */
+/*   Updated: 2022/08/01 11:13:05 by amenesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ int	child1(char *argv[], char **envp, int *fd)
 		dup2(file1, STDIN_FILENO);
 		close(fd[0]);
 		close(fd[1]);
+		close(file1);
 		execve(path(envp, cmd(argv[2])), cmd(argv[2]), NULL);
 	}
+	close(file1);
 	return (pid1);
 }
 
@@ -41,7 +43,7 @@ int	child2(char *argv[], char **envp, int *fd)
 
 	file2 = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (file2 == -1)
-		if_file_error(argv[4]); 
+		if_file_error(argv[4]);
 	pid2 = fork();
 	if (pid2 < 0)
 		fork_error();
@@ -51,7 +53,9 @@ int	child2(char *argv[], char **envp, int *fd)
 		dup2(file2, STDOUT_FILENO);
 		close(fd[1]);
 		close(fd[0]);
+		close(file2);
 		execve(path(envp, cmd(argv[3])), cmd(argv[3]), NULL);
 	}
+	close(file2);
 	return (pid2);
 }

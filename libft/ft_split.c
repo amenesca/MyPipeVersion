@@ -6,7 +6,7 @@
 /*   By: amenesca <amenesca@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 11:38:48 by amenesca          #+#    #+#             */
-/*   Updated: 2022/07/21 14:32:24 by amenesca         ###   ########.fr       */
+/*   Updated: 2022/08/01 11:11:40 by amenesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,6 @@ static size_t	how_many_words(char const *s, char c)
 	i = 0;
 	while (*s != '\0')
 	{
-/*		if (*s == "\"");
-		{
-			s++;
-			while (*s != "\"")
-				s++;
-		}
-		if (*s == 39)
-		{
-			s++;
-			while (*s != 39)
-				s++;
-		}*/
 		if ((*s != c) && (i == 0))
 		{
 			i = 1;
@@ -75,9 +63,7 @@ static	void	do_split(char **str, char const *s, char c)
 		while (s[j] == c && s[j] != '\0')
 			j++;
 		while (s[j + len] != c && s[j + len] != '\0')
-		{
 			len++;
-		}
 		str[i] = ft_substr(s, j, len);
 		j = j + len;
 		len = 0;

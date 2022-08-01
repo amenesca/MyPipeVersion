@@ -6,7 +6,7 @@
 /*   By: amenesca <amenesca@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:15:15 by amenesca          #+#    #+#             */
-/*   Updated: 2022/07/28 14:35:27 by amenesca         ###   ########.fr       */
+/*   Updated: 2022/08/01 11:12:12 by amenesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,20 @@ char	**cmd(char *argv)
 	int		i;
 
 	i = 0;
-	if(ft_memchr(argv, '/', 1))
+	if (ft_memchr(argv, '/', 1))
 	{
 		path = ft_split(argv, ' ');
 		if (access(path[0], F_OK | X_OK) == 0)
 		{
 			split = ft_split(argv, '/');
-			while(split[i])
+			while (split[i])
 				i++;
 			cmd = ft_split(split[i - 1], ' ');
 		}
 		else
 		{
 			path_error(path[0]);
-			return(0);
+			return (0);
 		}
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: amenesca <amenesca@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:15:33 by amenesca          #+#    #+#             */
-/*   Updated: 2022/07/28 14:33:11 by amenesca         ###   ########.fr       */
+/*   Updated: 2022/08/01 10:47:22 by amenesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char *argv[], char **envp)
 	}
 	else
 	{	
-		ft_putendl_fd("Invalid number of arguments.", 2);
+		ft_putendl_fd("Invalid arguments.", 2);
 		exit(EXIT_FAILURE);
 	}	
 	return (0);
