@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amenesca <amenesca@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 11:44:46 by amenesca          #+#    #+#             */
-/*   Updated: 2022/08/01 11:29:13 by amenesca         ###   ########.fr       */
+/*   Created: 2022/08/01 15:07:16 by amenesca          #+#    #+#             */
+/*   Updated: 2022/08/01 15:07:46 by amenesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1 || !set)
 		return (NULL);
-	if (*s1 && ft_strchr(set, *s1))
+	while (*s1 && ft_strchr(set, *s1))
 		s1++;
-	len = ft_strlen(s1) - 1;
-	if (len && ft_strchr(set, s1[len]))
+	len = ft_strlen(s1);
+	while (len && ft_strchr(set, s1[len]))
 		len--;
 	trim = ft_substr((char *) s1, 0, len + 1);
 	return (trim);
